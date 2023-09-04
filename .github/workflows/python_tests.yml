@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.x
+        python-version: 3.8
 
     - name: Run tests
       run: pytest test_calculator.py  # Run pytest on your test file
