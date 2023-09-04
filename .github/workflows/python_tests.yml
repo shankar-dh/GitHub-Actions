@@ -21,8 +21,8 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
-    - name: Run tests
-      run: pytest test_calculator.py  # Run pytest on your test file
+    - name: Run tests and generate XML report
+      run: pytest --junitxml=pytest-report.xml
 
     - name: Upload test results
       if: always()
