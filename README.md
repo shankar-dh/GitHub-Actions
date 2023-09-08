@@ -80,7 +80,7 @@ Now that we have our virtual environment set up, the GitHub repository created, 
 - fun2(x, y) subtracts y from x.
 - fun3(x, y) multiplies x and y.
 - fun4(x, y) combines the results of the above functions and returns their sum.
-- To view the code and gain a deeper understanding, please refer to the calculator.py file located under the src folder in this [link](https://github.com/shankar-dh/Github-actions).
+- To view the code and gain a deeper understanding, please refer to the calculator.py file located under the src folder in this [link](https://github.com/shankar-dh/Github-actions/blob/main/src/calculator.py).
 
 > **Note:** <br>
 Whenever you want to push files to your repository follow this step
