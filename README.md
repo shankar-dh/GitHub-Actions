@@ -1,5 +1,7 @@
 # Lab 01:  GitHub and GitHub Actions
 
+This lab focuses on 5 modules, which include creating a virtual environment, creating a GitHub repository, creating Python files, creating test files using pytest and unittest, and implementing GitHub Actions.
+
 
 
 ## Step 1: Creating a Virtual Environment
@@ -91,7 +93,7 @@ Whenever you want to push files to your repository follow this step
 - Installation (if not already installed):
 - If you haven't already installed pytest, you can do so using pip:
     ```
-    pip instal pytest
+    pip install pytest
     ```
 ### Writing Pytest Tests
 - Let's create a test file named test_pytest.py within the test folder. This file will contain a series of test functions, each aimed at verifying the behavior of specific functions within calculator.py.
