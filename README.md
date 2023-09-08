@@ -1,6 +1,6 @@
 # Lab 01:  GitHub and GitHub Actions
 
-This lab focuses on 5 modules, which include creating a virtual environment, creating a GitHub repository, creating Python files, creating test files using pytest and unittest, and implementing GitHub Actions.
+This lab focuses on 5 modules, which includes creating a virtual environment, creating a GitHub repository, creating Python files, creating test files using pytest and unittest, and implementing GitHub Actions.
 
 
 
