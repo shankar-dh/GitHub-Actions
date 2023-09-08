@@ -81,7 +81,7 @@ Now that we have our virtual environment set up, the GitHub repository created, 
 - To view the code and gain a deeper understanding, please refer to the calculator.py file located under the src folder in this [link](https://github.com/shankar-dh/Github-actions).
 
 > **Note:** <br>
-whenever you want to push files to your repository follow this step
+Whenever you want to push files to your repository follow this step
 [Adding and Pushing Your Project Code to GitHub](#adding-and-pushing-your-project-code-to-github)
 
 ## Step 4: Creating tests using Pytest and Unittests
@@ -95,4 +95,4 @@ whenever you want to push files to your repository follow this step
     ```
 ### Writing Pytest Tests
 - Let's create a test file named test_pytest.py within the test folder. This file will contain a series of test functions, each aimed at verifying the behavior of specific functions within calculator.py.
-- We've prepared four test functions (test_fun1, test_fun2, test_fun3, and test_fun4) to test the functions within calculator.py. Each test function uses the assert statement to validate the expected outcomes. Refer the file under test folder for your reference. Link
+- We've prepared four test functions (test_fun1, test_fun2, test_fun3, and test_fun4) to test the functions within calculator.py. Each test function uses the assert statement to validate the expected outcomes. Refer the file under test folder for your [reference](https://github.com/shankar-dh/Github-actions/blob/main/test/test_pytest.py).
