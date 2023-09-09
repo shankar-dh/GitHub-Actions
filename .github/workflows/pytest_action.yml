@@ -1,4 +1,4 @@
-name: Python Tests
+name: Testing with Pytest
 on:
   push:
     branches:
