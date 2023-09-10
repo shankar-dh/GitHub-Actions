@@ -29,10 +29,10 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(calculator.fun3(-1, -1), 1)
 
     def test_fun4(self):
-        self.assertEqual(calculator.fun4(2, 3), 10)
-        self.assertEqual(calculator.fun4(5, 0), 10)
-        self.assertEqual(calculator.fun4(-1, 1), -3)
-        self.assertEqual(calculator.fun4(-1, -1), -1)
+        self.assertEqual(calculator.fun4(2, 3, 5), 10)
+        self.assertEqual(calculator.fun4(5, 0, -1), 4)
+        self.assertEqual(calculator.fun4(-1, -1, -1), -3)
+        self.assertEqual(calculator.fun4(-1, -1, 100), 98)
 
 
 
