@@ -41,7 +41,6 @@ def fun4(x,y):
         int/float: Sum of fun1, fun2, and fun3.
         Raises:
             ValueError: If either x or y is not a number.
-    
     """
     if not (isinstance(x, (int, float)) and isinstance(y, (int, float))):
         raise ValueError("Both inputs must be numbers.")
