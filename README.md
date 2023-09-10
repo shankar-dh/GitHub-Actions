@@ -148,7 +148,7 @@ Whenever you want to push files to your repository follow this step
 ### Creating GitHub Actions Workflow Files:
 - To implement Pytest and Unittest with GitHub Actions, you'll create two workflow files under the .github/workflows directory in your repository: pytest_action.yml and unittest_action.yml. These workflow files define the specific actions and triggers for running your tests.
 
-**pytest_action.yml**
+**pytest_action.yml** <br>
 Please refer [this](https://github.com/shankar-dh/IE7374-Lab-01/blob/main/.github/workflows/pytest_action.yml) file for your reference
 1. Workflow Name: The workflow is named "Testing with Pytest."
 2. Event Trigger: It specifies the event that triggers the workflow. In this case, it triggers when code is pushed to the main branch.
@@ -163,16 +163,15 @@ Please refer [this](https://github.com/shankar-dh/IE7374-Lab-01/blob/main/.githu
 - if: success() checks if the tests passed successfully and runs the "Tests passed successfully" message.
 - if: failure() checks if the tests failed and runs the "Tests failed" message.
 
-unittest_action.yml Please refer this file for your reference
-
-Workflow Name: This GitHub Actions workflow is named "Python Unittests."
-Event Trigger: The workflow is triggered by the "push" event, specifically when changes are pushed to the main branch.
-Jobs: The workflow defines a single job named "build" that runs on the ubuntu-latest virtual machine environment.
-
-Steps:
-Checkout code: This step uses the actions/checkout@v2 action to check out the code from the repository. It ensures that the workflow has access to the latest code.
-Set up Python: The "Set up Python" step uses the actions/setup-python@v2 action to configure the Python environment. It specifies that Python version 3.8 should be used.
-Install Dependencies: This step runs the command pip install -r requirements.txt to install the project's Python dependencies. It assumes that the project's dependencies are listed in the requirements.txt file.
-Run unittests: In this step, the unittest tests are executed using the command python -m unittest test.test_unittest. It runs the unittest test suite defined in the test.test_unittest module.
-Notify on success: This step uses conditional logic with if: success() to check if all the unittest tests passed successfully. If they did, it runs the message "Unit tests passed successfully."
-Notify on failure: Similarly, this step uses conditional logic with if: failure() to check if any of the unittest tests failed. If any test failed, it runs the message "Unit tests failed."
+**unittest_action.yml** <br>
+ Please refer [this](https://github.com/shankar-dh/IE7374-Lab-01/blob/main/.github/workflows/unittest_action.yml) file for your reference
+1. Workflow Name: This GitHub Actions workflow is named "Python Unittests."
+2. Event Trigger: The workflow is triggered by the "push" event, specifically when changes are pushed to the main branch.
+3. Jobs: The workflow defines a single job named "build" that runs on the ubuntu-latest virtual machine environment.
+4. Steps:
+- Checkout code: This step uses the actions/checkout@v2 action to check out the code from the repository. It ensures that the workflow has access to the latest code.
+- Set up Python: The "Set up Python" step uses the actions/setup-python@v2 action to configure the Python environment. It specifies that Python version 3.8 should be used.
+- Install Dependencies: This step runs the command pip install -r requirements.txt to install the project's Python dependencies. It assumes that the project's dependencies are listed in the requirements.txt file.
+- Run unittests: In this step, the unittest tests are executed using the command python -m unittest test.test_unittest. It runs the unittest test suite defined in the test.test_unittest module.
+- Notify on success: This step uses conditional logic with if: success() to check if all the unittest tests passed successfully. If they did, it runs the message "Unit tests passed successfully."
+- Notify on failure: Similarly, this step uses conditional logic with if: failure() to check if any of the unittest tests failed. If any test failed, it runs the message "Unit tests failed."
