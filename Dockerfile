@@ -1,4 +1,4 @@
-FROM python:3.10-alpine
+FROM python:slim
 
 RUN mkdir /lab1
 WORKDIR /lab1
