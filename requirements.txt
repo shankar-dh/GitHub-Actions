@@ -1,4 +1,4 @@
 scikit-learn
 numpy
-pandas
 pytest
+pandas
