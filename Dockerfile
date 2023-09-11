@@ -11,4 +11,4 @@ COPY . .
 LABEL maintainer="Dheeraj <jadheeraj.inbox@gmail.com>" \version="1.0"
 
 
-CMD python run --host=localhost --port=5000
+CMD python src/lab1.py
