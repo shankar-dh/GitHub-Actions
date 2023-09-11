@@ -2,7 +2,7 @@ import random
 import numpy as np
 from sklearn import model_selection, datasets, preprocessing
 from sklearn.linear_model import LogisticRegression
-from src import calculator
+import calculator
 import pickle
 
 
