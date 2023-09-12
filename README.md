@@ -122,7 +122,7 @@ Whenever you want to push files to your repository follow this step
 - We've prepared four test functions (test_fun1, test_fun2, test_fun3, and test_fun4) to test the functions within calculator.py. Each test function uses the self.assertEqual statement to validate the expected outcomes. Refer the file under test folder for your [reference](https://github.com/shankar-dh/Github-actions/blob/main/test/test_unittest.py).
 - By running these unittest tests, you can verify that your calculator functions are working correctly.
 
-## Step 5. Implementing GitHub Actions
+## Step 5. Implementing GitHub Actions for Testing
 - GitHub Actions is a powerful automation and CI/CD (Continuous Integration/Continuous Deployment) platform provided by GitHub. It enables you to automate various workflows and tasks directly within your GitHub repository. GitHub Actions can be used for a wide range of purposes, such as running tests, deploying applications, and automating release processes.
 
 **How GitHub Actions Work:** <br>
