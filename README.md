@@ -3,7 +3,7 @@
 [![Python Unittests](https://github.com/shankar-dh/IE7374-Lab-01/actions/workflows/unittest_action.yml/badge.svg)](https://github.com/shankar-dh/IE7374-Lab-01/actions/workflows/unittest_action.yml)
 [![Testing with Pytest](https://github.com/shankar-dh/IE7374-Lab-01/actions/workflows/pytest_action.yml/badge.svg)](https://github.com/shankar-dh/IE7374-Lab-01/actions/workflows/pytest_action.yml) <br>
 
-This lab focuses on 5 modules, which includes creating a virtual environment, creating a GitHub repository, creating Python files, creating test files using pytest and unittest, and implementing GitHub Actions.
+This lab focuses on 8 modules, which includes creating a virtual environment, creating a GitHub repository, creating Python files, creating test files using pytest and unittest, and implementing GitHub Actions, building logistic regression model, containerizing the repo along with the model.
 
 
 
