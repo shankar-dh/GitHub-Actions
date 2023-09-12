@@ -52,7 +52,7 @@ After running the command, the repository will be cloned, and you'll have a loca
 - src: This folder is where you'll store your project's source code files. <br>
 - test: This folder is dedicated to unit tests and test scripts for your code. <br>
 - Create a file named .gitignore. This is useful to exclude the virtual environment and other unnecessary files from version control.
-- Add the virtual environment folder name inside your gitignore file so that its not tracked by Git.
+- Add the virtual environment folder name inside your gitignore file so that it's not tracked by Git.
 
 ### Adding and Pushing Your Project Code to GitHub
 Now that we have our virtual environment set up, the GitHub repository created, and the folder structure organized, let's add our project's code and push it to GitHub. 
@@ -175,3 +175,199 @@ Please refer [this](https://github.com/shankar-dh/IE7374-Lab-01/blob/main/.githu
 - Run unittests: In this step, the unittest tests are executed using the command python -m unittest test.test_unittest. It runs the unittest test suite defined in the test.test_unittest module.
 - Notify on success: This step uses conditional logic with if: success() to check if all the unittest tests passed successfully. If they did, it runs the message "Unit tests passed successfully."
 - Notify on failure: Similarly, this step uses conditional logic with if: failure() to check if any of the unittest tests failed. If any test failed, it runs the message "Unit tests failed."
+
+
+## Step 6: Creating Logistic Regression Model for Data Prediction.
+
+This demonstrates the creation of a logistic regression model for data prediction using scikit-learn and other Python libraries.
+
+### Introduction
+
+This project demonstrates the process of creating a logistic regression model for data prediction. It utilizes scikit-learn, numpy, and pickle to build, save, load, and use the model.
+
+### Installation
+
+To run this project, you'll need to install the required dependencies. You can do this using pip:
+
+```bash
+pip install scikit-learn
+```
+### First step: Data Generation
+
+We start by generating random data using the `datasets.make_blobs` function, creating 1000 samples with 4 features and 2 cluster centers.
+
+### Second step: Data Preprocessing
+
+The generated data is preprocessed to fit within the range of 0-1. We split the data into training and testing sets (default test size is 0.33).
+
+### Third step: Model Building and Saving
+
+We build a logistic regression model and fit it with the preprocessed data. The trained model is saved using the `pickle` module.
+
+### Fourth step: Model Loading and Prediction
+
+The saved model can be loaded and used for predictions. We also utilize functions from the `calculator.py` file, passing random inputs, scaling them to the range of 0-1, and predicting the class to which these points belong.
+
+### Dependencies
+
+The project depends on the following libraries:
+
+- `scikit-learn`
+- `numpy`
+
+## Step 7: Creating Dockerfile.
+
+### Prerequisites
+
+Before using this Docker image, ensure that you have the following:
+
+- [Docker](https://www.docker.com/) installed on your system.
+
+### Dockerized Python 3.10 Application
+
+This Dockerfile sets up an environment for running a Python application in a lightweight Slim Linux container.
+
+### Building the Docker Image
+
+To build the Docker image, follow these steps:
+
+1. **Selecting Base Image**: This Dockerfile specifies the use of the official Python 3.10 image based on Slim Linux as the base image. It provides a minimal Linux distribution with Python 3.10 pre-installed.
+
+2. **Creating a Directory**: The line `RUN mkdir /app` creates a directory named `/app` inside the container's filesystem. This directory will be used to store your application.
+
+3. **Setting Working Directory**: The line `WORKDIR /app` sets the `/app` directory as the current working directory for subsequent commands in the Dockerfile. It simplifies navigation within the container.
+
+4. **Copying Requirements**: `COPY requirements.txt requirements.txt` copies the `requirements.txt` file from the host machine (where the Dockerfile is located) into the `/app` directory within the container. This file typically lists the Python dependencies required for your application.
+
+5. **Installing Dependencies**: `RUN pip install -r requirements.txt` uses `pip` to install the Python dependencies listed in `requirements.txt`. This ensures that the required Python packages are installed inside the container.
+
+6. **Copying Application Code**: `COPY . .` copies all files and directories from the host machine into the `/app` directory within the container. This step includes your application code and any other files needed for your application to run.
+
+## Step 8: Creating .github/workflows.
+
+### GitHub Actions Workflow for Building and Pushing a Docker Image.
+
+This GitHub Actions workflow is designed to automatically build and push a Docker image to Docker Hub when changes are pushed to the `main` branch or when pull requests are made to the `main` branch. This can be useful for automating the deployment of Dockerized applications.
+
+### Workflow Configuration (application.yml)
+
+The workflow is defined in the `.github/workflows/publish.yml` file. Here's a breakdown of its contents:
+
+### Event Triggers
+
+```yaml
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+```
+This section defines the events that trigger the workflow. It runs whenever changes are pushed to the main branch or when pull requests are made to the main branch.
+
+```yml
+jobs:
+  build:
+```
+Defines a job named "build" within the workflow.
+
+```yml
+  runs-on: ubuntu-latest
+```
+Specifies that the job should run on an Ubuntu-based runner. ubuntu-latest ensures the use of the latest available version of the Ubuntu runner.
+
+```yml
+steps:
+    - uses: actions/checkout@v1
+```
+actions/checkout is used to check out the repository's code. This step ensures that the workflow has access to the codebase.
+
+```yml
+    - name: Docker Login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+```
+
+- This step is responsible for logging in to Docker Hub using the provided Docker credentials stored as GitHub secrets.
+- DOCKER_USER and DOCKER_PASSWORD are environment variables set from secrets for secure Docker login.
+- The docker login command authenticates the workflow to Docker Hub using the provided credentials.
+
+```yml
+    - name: Build and Push Image
+      run: |
+        docker image build -t owner_name/image_name:latest .
+        docker push owner_name/image_name:latest
+```
+- In this step, the Docker image is built and pushed to Docker Hub.
+- Docker image build is used to build the Docker image tagged as owner_name/image_name:latest. 
+- The . specifies that the Dockerfile is in the root directory of the repository.
+- Docker push is used to push the built image to Docker Hub.
+
+### Usage
+- Ensure that you have set up the required secrets (DOCKER_USER and DOCKER_PASSWORD) in the repository's GitHub settings. 
+- These secrets should contain your Docker Hub credentials.
+- Push changes to the main branch or create pull requests to the main branch to trigger the workflow.
+- The workflow will automatically build and push the Docker image to Docker Hub on successful execution.
+- This workflow streamlines the process of building and deploying Dockerized applications whenever changes are made to the main branch.
+
+
+### GitHub Actions Workflow for Building and Pushing a Docker Image to GHCR
+
+This GitHub Actions workflow automates the process of building and pushing a Docker image to the GitHub Container Registry (GHCR) whenever changes are pushed to the repository. It uses a Personal Access Token (PAT) stored as a secret for authentication with GHCR.
+
+### Workflow Configuration (publish-ghcr.yml)
+
+The workflow is defined in the `.github/workflows/publish-ghcr.yml` file. Here's a breakdown of its contents:
+
+### Event Trigger
+
+```yaml
+on:
+  push
+```
+This workflow is triggered whenever changes are pushed to the repository. It doesn't specify a specific branch, so any push to any branch will trigger it.
+
+```yml
+jobs:
+  publish-docker-image:
+```
+Defines a job named "publish-docker-image" within the workflow.
+
+```yml
+    runs-on: ubuntu-latest
+```
+
+Specifies that the job should run on an Ubuntu-based runner. ubuntu-latest ensures the use of the latest available version of the Ubuntu runner.
+
+```yml
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+```
+The "Checkout Repository" step is used to fetch the repository's code. 
+This ensures that the workflow has access to the codebase.
+
+```yml
+    - name: Build the hello-docker Docker image
+      run: |
+        docker login --username user_name --password ${{secrets.GH_PAT}} ghcr.io
+        docker build . --tag ghcr.io/owner_name/ghcr-docker:latest
+        docker push ghcr.io/owner_name/ghcr-docker:latest
+
+```
+- In this step, the Docker image is built and pushed to the GitHub Container Registry (GHCR).
+- Docker login is used to authenticate with GHCR using the provided GitHub Personal Access Token (PAT) stored as a secret (GH_PAT).
+- Docker build builds the Docker image, tagging it as ghcr.io/owner_name/ghcr-docker:latest. 
+- The . specifies that the Dockerfile is in the root directory of the repository.
+- Docker push is used to push the built image to GHCR.
+
+### Usage
+To set up and use this workflow:
+
+- Ensure that you have created a GitHub Personal Access Token (PAT) with the necessary permissions to access GHCR.
+- Store the PAT as a secret named GH_PAT in the repository's GitHub settings.
+- Push changes to the repository to trigger the workflow.
+- The workflow will automatically build and push the Docker image to GHCR using the provided PAT for authentication.
+- This workflow simplifies the process of building and publishing Docker images to GHCR whenever code changes are pushed to the repository.
