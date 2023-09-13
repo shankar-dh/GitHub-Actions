@@ -82,7 +82,7 @@ Now that we have our virtual environment set up, the GitHub repository created, 
 - fun1(x, y) adds two input numbers, x and y.
 - fun2(x, y) subtracts y from x.
 - fun3(x, y) multiplies x and y.
-- fun4(x, y) combines the results of the above functions and returns their sum.
+- fun4(x, y,z) combines the results of the above functions and returns their sum.
 - To view the code and gain a deeper understanding, please refer to the calculator.py file located under the src folder in this [link](https://github.com/shankar-dh/Github-actions/blob/main/src/calculator.py).
 
 > **Note:** <br>
