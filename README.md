@@ -16,7 +16,7 @@ To create a virtual environment, follow these steps:
 1. Open a Command Prompt or Terminal in the directory where you want to create your project.
 2. Choose a name for your virtual environment (e.g "lab_01") and run the appropriate command:
     ```
-    python -m venv lab_01
+    python -m venv lab01
     ```
 3. Activate the virtual environment
     ```
