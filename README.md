@@ -370,3 +370,5 @@ To set up and use this workflow:
 - Push changes to the repository to trigger the workflow.
 - The workflow will automatically build and push the Docker image to GHCR using the provided PAT for authentication.
 - This workflow simplifies the process of building and publishing Docker images to GHCR whenever code changes are pushed to the repository.
+
+- Edited
